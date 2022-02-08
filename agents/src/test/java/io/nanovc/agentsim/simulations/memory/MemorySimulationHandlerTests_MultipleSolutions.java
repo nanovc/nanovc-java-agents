@@ -263,6 +263,7 @@ public class MemorySimulationHandlerTests_MultipleSolutions extends MemorySimula
         );
     }
 
+
     @Test
     public void singleModelModifiedByFourAgents() throws Exception
     {
