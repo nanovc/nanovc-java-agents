@@ -270,7 +270,6 @@ public class MemorySimulationHandlerTests_MultipleSolutions extends MemorySimula
         ConsumerWithException<EnvironmentController> inputModelCreator = controller ->
         {
             //#region Input Model
-
             AgentModel dataModel = new AgentModel();
             dataModel.name = "question";
             dataModel.data = "Are robots the best?";
