@@ -163,27 +163,51 @@ class ContentPermutatorTests
         // Make sure that iterating the permutations is as expected:
         String expectedContent =
             "Permutation: 1\n" +
-            "/A:A1\n" +
+            "/A:A2\n" +
             "/B:B1\n" +
             "\n" +
             "Permutation: 2\n" +
-            "/A:A2\n" +
+            "/A:A1\n" +
             "/B:B1\n" +
             "\n" +
             "Permutation: 3\n" +
-            "/A:A1\n" +
-            "/B:B2\n" +
+            "/A:A3\n" +
+            "/B:B1\n" +
             "\n" +
             "Permutation: 4\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 5\n" +
             "/A:A2\n" +
             "/B:B2\n" +
             "\n" +
-            "Permutation: 5\n" +
+            "Permutation: 6\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 7\n" +
+            "/A:A3\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 8\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 9\n" +
+            "/A:A2\n" +
+            "/B:B3\n" +
+            "\n" +
+            "Permutation: 10\n" +
             "/A:A1\n" +
             "/B:B3\n" +
             "\n" +
-            "Permutation: 6\n" +
-            "/A:A2\n" +
+            "Permutation: 11\n" +
+            "/A:A3\n" +
+            "/B:B3\n" +
+            "\n" +
+            "Permutation: 12\n" +
+            "/A:A1\n" +
             "/B:B3\n";
         assertPermutations(this.permutator, expectedContent);
     }
