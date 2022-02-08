@@ -147,6 +147,49 @@ class ContentPermutatorTests
     }
 
     @Test
+    public void iteratingContent_A2_B3INPROGRESS()
+    {
+        // Add content:
+
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A2"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A1"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A3"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A1"));
+
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B1"));
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B2"));
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B3"));
+
+        // Make sure that iterating the permutations is as expected:
+        String expectedContent =
+            "Permutation: 1\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 2\n" +
+            "/A:A2\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 3\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 4\n" +
+            "/A:A2\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 5\n" +
+            "/A:A1\n" +
+            "/B:B3\n" +
+            "\n" +
+            "Permutation: 6\n" +
+            "/A:A2\n" +
+            "/B:B3\n";
+        assertPermutations(this.permutator, expectedContent);
+    }
+
+
+    @Test
     public void iteratingContent_A2_B2_C2()
     {
         // Add content:
@@ -202,6 +245,48 @@ class ContentPermutatorTests
             "/C:C2\n";
         assertPermutations(this.permutator, expectedContent);
     }
+
+
+    @Test
+    public void iteratingContent_A3_B2()
+    {
+        // Add content:
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A1"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A2"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A3"));
+
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B1"));
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B2"));
+
+
+        // Make sure that iterating the permutations is as expected:
+        String expectedContent =
+            "Permutation: 1\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 2\n" +
+            "/A:A2\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 3\n" +
+            "/A:A3\n" +
+            "/B:B1\n" +
+            "\n" +
+            "Permutation: 4\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 5\n" +
+            "/A:A2\n" +
+            "/B:B2\n" +
+            "\n" +
+            "Permutation: 6\n" +
+            "/A:A3\n" +
+            "/B:B2\n";
+        assertPermutations(this.permutator, expectedContent);
+    }
+
     @Test
     public void iteratingContent_A3_B3()
     {
@@ -251,6 +336,160 @@ class ContentPermutatorTests
             "Permutation: 9\n" +
             "/A:A3\n" +
             "/B:B3\n";
+        assertPermutations(this.permutator, expectedContent);
+    }
+    @Test
+    public void iteratingContent_A3_B3_C3()
+    {
+        // Add content:
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A1"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A2"));
+        permutator.addClashingContent(RepoPath.at("/A"), new StringContent("A3"));
+
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B1"));
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B2"));
+        permutator.addClashingContent(RepoPath.at("/B"), new StringContent("B3"));
+
+        permutator.addClashingContent(RepoPath.at("/C"), new StringContent("C1"));
+        permutator.addClashingContent(RepoPath.at("/C"), new StringContent("C2"));
+        permutator.addClashingContent(RepoPath.at("/C"), new StringContent("C3"));
+
+        // Make sure that iterating the permutations is as expected:
+        String expectedContent =
+            "Permutation: 1\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 2\n" +
+            "/A:A2\n" +
+            "/B:B1\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 3\n" +
+            "/A:A3\n" +
+            "/B:B1\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 4\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 5\n" +
+            "/A:A2\n" +
+            "/B:B2\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 6\n" +
+            "/A:A3\n" +
+            "/B:B2\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 7\n" +
+            "/A:A1\n" +
+            "/B:B3\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 8\n" +
+            "/A:A2\n" +
+            "/B:B3\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 9\n" +
+            "/A:A3\n" +
+            "/B:B3\n" +
+            "/C:C1\n" +
+            "\n" +
+            "Permutation: 10\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 11\n" +
+            "/A:A2\n" +
+            "/B:B1\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 12\n" +
+            "/A:A3\n" +
+            "/B:B1\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 13\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 14\n" +
+            "/A:A2\n" +
+            "/B:B2\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 15\n" +
+            "/A:A3\n" +
+            "/B:B2\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 16\n" +
+            "/A:A1\n" +
+            "/B:B3\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 17\n" +
+            "/A:A2\n" +
+            "/B:B3\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 18\n" +
+            "/A:A3\n" +
+            "/B:B3\n" +
+            "/C:C2\n" +
+            "\n" +
+            "Permutation: 19\n" +
+            "/A:A1\n" +
+            "/B:B1\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 20\n" +
+            "/A:A2\n" +
+            "/B:B1\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 21\n" +
+            "/A:A3\n" +
+            "/B:B1\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 22\n" +
+            "/A:A1\n" +
+            "/B:B2\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 23\n" +
+            "/A:A2\n" +
+            "/B:B2\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 24\n" +
+            "/A:A3\n" +
+            "/B:B2\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 25\n" +
+            "/A:A1\n" +
+            "/B:B3\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 26\n" +
+            "/A:A2\n" +
+            "/B:B3\n" +
+            "/C:C3\n" +
+            "\n" +
+            "Permutation: 27\n" +
+            "/A:A3\n" +
+            "/B:B3\n" +
+            "/C:C3\n";
         assertPermutations(this.permutator, expectedContent);
     }
 
