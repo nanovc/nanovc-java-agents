@@ -269,7 +269,6 @@ public class MemorySimulationHandlerTests_MultipleSolutions extends MemorySimula
         // Define the input model using code:
         ConsumerWithException<EnvironmentController> inputModelCreator = controller ->
         {
-
             //#region Input Model
             AgentModel dataModel = new AgentModel();
             dataModel.name = "question";
