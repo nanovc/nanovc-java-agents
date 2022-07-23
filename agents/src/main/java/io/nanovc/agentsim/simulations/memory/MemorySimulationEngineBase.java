@@ -462,6 +462,8 @@ public abstract class MemorySimulationEngineBase<
                     // Remove the current solution from the next round:
                     simulation.getSolutions().remove(solution);
 
+                    spawnedSolutions.remove(spawnedSolutions.size() - 1);
+
                     // Flag the current solution as being removed in this round because it has been replaced with spawned solutions:
                     solutionsThatWereRemoved.add(solution);
                 }
